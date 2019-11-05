@@ -1,11 +1,11 @@
 import React from 'react';
-import Header from './Header';
-import Footer from './Footer';
 import { 
   BrowserRouter as Router,
   Route,
   Switch
 } from 'react-router-dom';
+import Header from './Header';
+import Footer from './Footer';
 import Home from './Home';
 import List from './List';
 import Detail from './Detail';

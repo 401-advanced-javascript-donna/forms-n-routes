@@ -1,21 +1,25 @@
 import React, { Component } from 'react';
-import Character from './Character';
 import apiCall from '../services/api-call';
+import Character from './Character';
 
-class Home extends Component {
+export default class Home extends Component {
+
   state = {
-    data: {}
+    character: {}
   }
+
   componentDidMount() {
-    return apiCall()
-      .then(data => this.setState({ data: data[0] }));
+    apiCall()
+      .then((item) => this.setState({ character: item[0] }));
   }
 
   render() {
+
     return (
-      <Character item={this.state.data.photoUrl} />
+      <>
+        <Character item={this.state.character} />
+      </>
     );
   }
 }
 
-export default Home;
