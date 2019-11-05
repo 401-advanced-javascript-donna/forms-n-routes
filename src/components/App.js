@@ -1,6 +1,25 @@
 import React from 'react';
+import Header from './Header';
+import Footer from './Footer';
+import { 
+  BrowserRouter as Router,
+  Route,
+  Switch
+} from 'react-router-dom';
+import Home from './Home';
+import List from './List';
+import Detail from './Detail';
 
-export default function App() {
-  return <h1>Hello World</h1>;
-}
-  
+const App = () => (
+  <Router>
+    <Header />
+    <Switch>
+      <Route exact path="/" component={Home} />
+      <Route path="/detail" component={Detail} />
+      <Route path="/list" component={List} />
+    </Switch>
+    <Footer />
+  </Router>
+);
+
+export default App;
