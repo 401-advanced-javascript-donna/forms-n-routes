@@ -1,23 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Character = ({ item }) => {
-
+const Character = ({ photo, name, handleClick }) => {
   return (
-    <div key={item}>
-      <figure>
-        <img src={item.photoUrl} alt={name} />
-      </figure>
+    <div>
+      <img src={photo}></img>
+      <p>{name}</p>
+      <button onClick={handleClick}>Get a New Character</button>
     </div>
   );
 };
 
 Character.propTypes = {
-  item: PropTypes.shape({
-    _id: PropTypes.string,
-    name: PropTypes.string,
-    photoUrl: PropTypes.string,
-  })
+  photo: PropTypes.string.isRequired,
+  name: PropTypes.string,
+  handleClick: PropTypes.func.isRequired
 };
 
 export default Character;

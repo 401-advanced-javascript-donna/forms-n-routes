@@ -1,21 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Form = ({ handleSubmit, handleChange, name }) => {
-  
+const Form = ({ form, handleSubmit, handleChange }) => {
+
   return (
     <form onSubmit={handleSubmit}>
-      <input type="text" name="name" value={name} onChange={handleChange}></input>
-      <button>Go!</button>
+      <h2>Find a Character</h2>
+      <input type="text" name="form" value={form} onChange={handleChange}></input>
+      <button>Form</button>
     </form>
   );
-  
 };
 
 Form.propTypes = {
+  form: PropTypes.string.isRequired,
   handleSubmit: PropTypes.func.isRequired,
-  handleChange: PropTypes.func.isRequired,
-  name: PropTypes.string.isRequired
+  handleChange: PropTypes.func.isRequired
 };
+
 
 export default Form;

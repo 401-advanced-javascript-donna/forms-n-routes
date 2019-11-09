@@ -10,7 +10,8 @@ export default class Home extends Component {
   }
 
   state = {
-    character: {}
+    character: {},
+    name: ''
   }
 
   fetch() {
@@ -37,10 +38,10 @@ export default class Home extends Component {
 
   render() {
 
-    const name = this.state;
+    const { character, name } = this.state;
     return (
       <>
-        <Character item={this.state.character} />
+        <Character item={character} />
         <button onClick={this.handleClick}>Get Random Character</button>
         <Form 
           handleSubmit={this.handleSubmit}
