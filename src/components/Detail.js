@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { getSingleCharacter } from '../services/api-call';
 
-class CharacterDetail extends Component {
+class Detail extends Component {
 
   static propTypes = {
     match: PropTypes.shape({
@@ -40,4 +41,4 @@ class CharacterDetail extends Component {
 }
 
 
-export default CharacterDetail;
+export default Detail;

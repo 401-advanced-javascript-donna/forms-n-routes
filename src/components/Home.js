@@ -1,55 +1,58 @@
 import React, { Component } from 'react';
-import apiCall from '../services/api-call';
+import { getCharacter } from '../services/api-call';
 import Character from './Character';
 import Form from './Form';
 import PropTypes from 'prop-types';
 
-export default class Home extends Component {
+class Home extends Component {
+
   static propTypes = {
     history: PropTypes.object.isRequired
   }
 
   state = {
-    character: {},
-    name: ''
-  }
-
-  fetch() {
-    return apiCall()
-      .then(item => this.setState({ character: item[0] }));
-  }
+    photo: '',
+    name: '',
+    search: '',
+  };
 
   componentDidMount() {
-    this.fetch();
+    getCharacter()
+      .then(character => {
+        this.setState({ photo: character[0].photoUrl, name: character[0].name });
+      });
   }
 
-  handleClick = () => {
-    this.fetch();
+  handleClick = event => {
+    event.preventDefault();
+    getCharacter()
+      .then(character => {
+        this.setState({ photo: character[0].photoUrl, name: character[0].name });
+      });
   }
 
-  handleSubmit = (e) => {
-    e.preventDefault();
-    this.props.history.push(`/list/${this.state.name}`);
+  handleSubmit = event => {
+    event.preventDefault();
+    const searchUrl = `/list/${this.state.search}`;
+    this.props.history.push(searchUrl);
+    
+
+
   }
 
   handleChange = ({ target }) => {
-    this.setState({ name: target.value });
+    this.setState({ search: target.value });
   }
 
   render() {
 
-    const { character, name } = this.state;
     return (
-      <>
-        <Character item={character} />
-        <button onClick={this.handleClick}>Get Random Character</button>
-        <Form 
-          handleSubmit={this.handleSubmit}
-          handleChange={this.handleChange}
-          name={name}
-        />
-      </>
+      <div>
+        <Character photo={this.state.photo} name={this.state.name} handleClick={this.handleClick} />
+        <Form form={this.state.search} handleSubmit={this.handleSubmit} handleChange={this.handleChange} />
+      </div>
     );
   }
 }
 
+export default Home;
