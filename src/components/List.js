@@ -1,30 +1,72 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import ListItem from './ListItem';
+import { getSearchedCharacters } from '../services/api-call';
 import PropTypes from 'prop-types';
 
-class ListItem extends Component {
+class List extends Component {
 
   static propTypes = {
-    _id: PropTypes.string,
-    name: PropTypes.string,
-    photo: PropTypes.string,
-    history: PropTypes.object
+    match: PropTypes.shape({
+      params: PropTypes.shape({
+        search: PropTypes.string.isRequired
+      }).isRequired
+    }).isRequired
+  };
+
+  state = {
+    matches: [],
+    page: 1
   }
 
+
+  componentDidMount() {
+    getSearchedCharacters(this.props.match.params.search || '', 1)
+      .then(matches => {
+        this.setState({ matches });
+      });
+  }
+
+  componentDidUpdate(prevProp, prevState) {
+    if(prevState.page !== this.state.page) {
+      getSearchedCharacters(this.props.match.params.search || '', this.state.page)
+        .then(matches => {
+          this.setState({ matches });
+        });
+    }
+  }
+
+  decrementPage = () => {
+    this.setState(state => ({
+      page: state.page - 1
+    }));
+  }
+
+  incrementPage = () => {
+    this.setState(state => ({
+      page: state.page + 1
+    }));
+  }
 
   render() {
-    const characterUrl = `/character/${this.props._id}`;
-    return (
-      <Link to={characterUrl}>
+    const elements = this.state.matches.map(item => (
 
-        <li key={this.props._id}>
-          <img src={this.props.photo} alt={this.props._id}></img>
-          <p>{this.props.name}</p>
-        </li>
-      </Link>
+      <ListItem
+        key={item._id}
+        name={item.name}
+        _id={item._id}
+        photo={item.photoUrl} />
+    ));
+    return (
+      <div>
+        <button onClick={this.decrementPage}>Prev</button>
+        <button onClick={this.incrementPage}>Next</button>
+        <ul>
+          {elements}
+        </ul>
+      </div>
     );
   }
+
 }
 
-export default ListItem;
-
+export default List;

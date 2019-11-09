@@ -6,7 +6,7 @@ export function getCharacter() {
 }
 
 export function getSearchedCharacters(search, page = 1) {
-  return fetch(`${URL}/api/v1/characters?name=${search}&perPage=3&page=${page}`)
+  return fetch(`${URL}/api/v1/characters?name=${search}&page=${page}`)
     .then(res => res.json());
 }
 
