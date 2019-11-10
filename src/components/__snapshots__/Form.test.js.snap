@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Form component should render Form 1`] = `
+<form
+  onSubmit={[Function]}
+>
+  <h2>
+    Find a Character
+  </h2>
+  <input
+    name="search"
+    onChange={[Function]}
+    type="text"
+    value="test search"
+  />
+  <button>
+    Form
+  </button>
+</form>
+`;

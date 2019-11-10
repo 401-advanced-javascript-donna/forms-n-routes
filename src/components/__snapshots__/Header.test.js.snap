@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header component should render Header 1`] = `
+<header>
+  <h1>
+    Last Airbender
+  </h1>
+  <nav>
+    <Link
+      to="/"
+    >
+      Home
+    </Link>
+    <Link
+      to="/list"
+    >
+      List
+    </Link>
+  </nav>
+</header>
+`;
