@@ -4,7 +4,7 @@
   background-size: 20%;
   background-repeat: no-repeat;
   background-position: center center;
-  height: 175px;
+  height: 160px;
   
   nav {
     display: flex;
@@ -13,6 +13,7 @@
     background-color: #674A4E;
     height: 1.5em;
     width: 100vw;
+    border-bottom: 1px solid #C3463E;
   }
 
   a {
