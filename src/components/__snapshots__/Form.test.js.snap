@@ -2,6 +2,7 @@
 
 exports[`Form component should render Form 1`] = `
 <form
+  className="Form"
   onSubmit={[Function]}
 >
   <h2>
@@ -14,7 +15,7 @@ exports[`Form component should render Form 1`] = `
     value="test search"
   />
   <button>
-    Form
+    Search
   </button>
 </form>
 `;

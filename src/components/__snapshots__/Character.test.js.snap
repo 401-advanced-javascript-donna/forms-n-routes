@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Character component renders a character 1`] = `
-<div>
+<div
+  className="Character"
+>
   <img
     src="test image"
   />

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ListItem from '../components/ListItem';
 import { getSearchedCharacters } from '../services/api-call';
 import PropTypes from 'prop-types';
+import styles from './List.css';
 
 class List extends Component {
 
@@ -57,9 +58,11 @@ class List extends Component {
         photo={item.photoUrl} />
     ));
     return (
-      <div>
-        <button onClick={this.decrementPage}>Prev</button>
-        <button onClick={this.incrementPage}>Next</button>
+      <div className={styles.List}>
+        <section>
+          <button onClick={this.decrementPage}>Prev</button>
+          <button onClick={this.incrementPage}>Next</button>
+        </section>
         <ul>
           {elements}
         </ul>

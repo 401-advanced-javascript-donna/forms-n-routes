@@ -3,7 +3,7 @@ import { getCharacter } from '../services/api-call';
 import Character from '../components/Character';
 import Form from '../components/Form';
 import PropTypes from 'prop-types';
-
+import styles from './Home.css';
 class Home extends Component {
 
   static propTypes = {
@@ -47,7 +47,7 @@ class Home extends Component {
   render() {
 
     return (
-      <div>
+      <div className={styles.Home}>
         <Character photo={this.state.photo} name={this.state.name} handleClick={this.handleClick} />
         <Form form={this.state.search} handleSubmit={this.handleSubmit} handleChange={this.handleChange} />
       </div>

@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import styles from './ListItem.css';
 
 
 class ListItem extends Component {
@@ -19,7 +20,7 @@ class ListItem extends Component {
     return (
       <Link to={characterUrl}>
 
-        <li key={this.props._id}>
+        <li className={styles.ListItem} key={this.props._id}>
           <img src={this.props.photo} alt={this.props._id}></img>
           <p>{this.props.name}</p>
         </li>

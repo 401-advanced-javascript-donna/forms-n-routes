@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from './Form.css';
 
 const Form = ({ search, handleSubmit, handleChange }) => {
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form className={styles.Form} onSubmit={handleSubmit}>
       <h2>Find a Character</h2>
       <input type="text" name="search" value={search} onChange={handleChange}></input>
-      <button>Form</button>
+      <button>Search</button>
     </form>
   );
 };

@@ -1,0 +1,25 @@
+.Header {
+  background-color: #3F303E;
+  background-image: url('../assets/atla_transparent_logo.png');
+  background-size: 20%;
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: 175px;
+  
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #674A4E;
+    height: 1.5em;
+    width: 100vw;
+  }
+
+  a {
+    text-decoration: none;
+    color: #A0B890;
+    font-family: sans-serif;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+  }
+}

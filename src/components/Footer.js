@@ -1,7 +1,8 @@
 import React from 'react';
+import styles from './Footer.css';
 
 const Footer = () => (
-  <footer>&copy; 2019 Donna Lambert</footer>
+  <footer className={styles.Footer}>&copy; 2019 Donna Lambert</footer>
 );
 
 export default Footer;

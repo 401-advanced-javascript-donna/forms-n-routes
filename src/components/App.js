@@ -9,6 +9,7 @@ import Footer from './Footer';
 import Home from '../container/Home';
 import List from '../container/List';
 import Detail from '../container/Detail';
+import './App.css';
 
 export default function App() {
   return (
