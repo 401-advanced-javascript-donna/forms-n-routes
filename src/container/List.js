@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ListItem from './ListItem';
+import ListItem from '../components/ListItem';
 import { getSearchedCharacters } from '../services/api-call';
 import PropTypes from 'prop-types';
 
@@ -10,7 +10,7 @@ class List extends Component {
       params: PropTypes.shape({
         search: PropTypes.string.isRequired
       }).isRequired
-    }).isRequired
+    })
   };
 
   state = {

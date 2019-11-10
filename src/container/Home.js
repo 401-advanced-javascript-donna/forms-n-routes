@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { getCharacter } from '../services/api-call';
-import Character from './Character';
-import Form from './Form';
+import Character from '../components/Character';
+import Form from '../components/Form';
 import PropTypes from 'prop-types';
 
 class Home extends Component {

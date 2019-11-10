@@ -6,7 +6,6 @@ const Header = () => (
     <h1>Last Airbender</h1>
     <nav>
       <Link to="/">Home</Link>
-      <Link to="/detail">Detail</Link>
       <Link to="/list">List</Link>
     </nav>
   </header>
